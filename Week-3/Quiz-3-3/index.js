@@ -19,7 +19,7 @@ var database = firebase.firestore();
 const get3UsersSaralyMoreThan65k = document.querySelector("#get3UsersSaralyMoreThan65k");
 get3UsersSaralyMoreThan65k.addEventListener("click", function () {
     const docRef = database.collection("users");
-    docRef.where("salary",">=",65000).limit(3).get().then(function (querySnapshot) {
+    docRef.where("salary",">",65000).limit(3).get().then(function (querySnapshot) {
       querySnapshot.forEach(function (doc) {
         console.log('name: ',doc.data().firstname, 'salary: ', doc.data().salary,'country: ',doc.data().country);
       });
